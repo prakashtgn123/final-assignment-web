@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Assignment</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: rgb(239, 222, 225);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main {
+            width: 60%;
+            height: 150vh;
+            background-color: yellowgreen;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 10px;
+        }
+
+        .display-image {
+            width: 100%;
+            height: 40%;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        #background {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        .menu {
+            background-color: white;
+            width: 97.5%;
+            height: auto;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .option {
+            width: 70px;
+            text-align: center;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 16px;
+            background-color: rgb(213, 231, 177);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .description {
+            background-color: white;
+            width: 100%;
+            height: 600px;
+            margin-top: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            overflow: scroll;
+        }
+
+        #default {
+            width: 100%;
+            height: 100%;
+        }
+
+       
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="display-image">
+            <img src="images/background.jpg" id="background" />
+        </div>
+        <div class="menu">
+            <div class="option" id="top"><a href="index.html">Top Page</a></div>
+            <div class="option" id="score"><a href="score.html">Score</a></div>
+            <div class="option" id="phyla"><a href="football.html">Football</a></div>
+            <div class="option" id="jsworld"><a href="jsworld.html">JS World</a></div>
+            <div class="option" id="form"><a href="form.html">Form</a></div>
+            <div class="option" id="map"><a href="map.html">Map</a></div>
+            <div class="option" id="animation"><a href="animation.html">Animation</a></div>
+        </div>
+        <div class="description" id="detail">
+            <h1>Welcome to the world of Java World</h1><br />
+            <div id="entry">
+                <form action="/action_page.php" onsubmit="return false;">
+                    <label for="fname">Please input your fullname:</label><br>
+                    <input type="text" id="fname" name="fname"><br>
+                    <input id="alert" type="submit" value="Submit" onclick="displayFullName()">
+                </form><br>
+                <br />
+                <form id="color">
+                    <label for="color">Please select your favorite color:</label><br>
+                    <label for="red">Red</label>
+                    <input type="radio" id="red" name="color" value="red">
+                    <br>
+                    <label for="yellow">yellow</label>
+                    <input type="radio" id="yellow" name="color" value="yellow">
+                    <br>
+                    <label for="green">green</label>
+                    <input type="radio" id="green" name="color" value="green">
+                    <br>
+                    <input type="button" value="Submit" onclick="displayColor()">
+                </form>
+                <br>
+                <form id="sexForm">
+                    <label for="fname">Please input your gender:</label><br>
+                    <label for="male">Male</label>
+                    <input type="radio" id="male" name="sex" value="Male">
+                    <br>
+                    <label for="female">Female</label>
+                    <input type="radio" id="female" name="sex" value="Female">
+                    <br>
+                    <input type="button" value="Submit" onclick="displaySex()">
+                </form>
+                <p>
+                    <center>Mouseover effect</center>
+                </p>
+                <img src="images/11.jpg" name="m" width="400px" height="400px" onmouseover="this.src='images/22.jpg'"
+                    onmouseout="this.src='images/77.jpg'">
+                <div>
+                    <br><br>
+                    <button onclick="change('images/33.jpg')">Nature</button>
+                    <button onclick="change('images/44.jpg')">Valley</button>
+                    <button onclick="change('images/55.jpg')">Waterfall</button>
+                    <br><br>
+                </div>
+
+                <div>
+                    <img src="images/66.jpg" id="mainImage" alt="Main Image" width="500px">
+                </div>
+
+            </div>
+
+            <script>
+                function change(newImageSrc) {
+                    var imageElement = document.getElementById("mainImage");
+                    imageElement.src = newImageSrc;
+                }
+
+
+                function changeImage(newImage) {
+                    var imageElement = document.getElementsByTagName("img")[0];
+                    imageElement.src = newImage;
+                }
+
+                function displayFullName() {
+                    var fullName = document.getElementById("fname").value;
+                    alert("Your fullname is: " + fullName);
+                }
+        
+                function displaySex() {
+                    var selectedSex = document.querySelector('input[name="sex"]:checked');
+                    if (selectedSex) {
+                        alert("Your selected sex is: " + selectedSex.value);
+                    } else {
+                        alert("Please select a sex.");
+                    }
+                }
+
+                function displayColor() {
+                    var selectedColor = document.querySelector('input[name="color"]:checked');
+                    if (selectedColor) {
+                        alert("Your favorite color is: " + selectedColor.value);
+                        }   
+                        else {
+                            alert("Please select your favorite color.");
+                        }
+                    }
+                
+            
+            </script>
+
+        </div>
+
+</body>
+
+</html>
